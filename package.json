@@ -1,7 +1,7 @@
 {
-  "name": "electron-quick-start",
+  "name": "WTheme",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "위너스톡 테마검색기",
   "main": "app/main.js",
   "scripts": {
     "start": "electron ."
