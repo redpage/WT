@@ -1,0 +1,53 @@
+<template class="task-template">
+<style type="text/css">
+.contents .top { height:30px; line-height:30px}
+.top ul { text-align:right; padding-right:30px; color:#555; font-family:Gulim, Dotum}
+</style>
+<div id="e-all" class="contents">
+	<div class="top">
+  	<ul>[등락율 상위 3종목에 대한 평균]</ul>
+  </div>
+  <div class="thema_all">
+<!--<?php
+	$rs = $WIT->DB->callText("select a.themeno, a.upcnt, a.dncnt, ufn_get_theme_top3(a.themeno) as inf, b.dp_nm, b.themenm from ( select themeno, sum(case when drate > 0 then 1 else 0 end) as upcnt,  sum(case when drate < 0 then 1 else 0 end) as dncnt from v_theme_stock group by themeno) a join v_theme b on a.themeno=b.themeno order by b.dp_nm;", "reader");
+	$dp_nm = "";
+	foreach($rs as $r) {
+		if($dp_nm != $r["dp_nm"])
+		{
+			if($dp_nm != "") {
+					echo("</div></div>");
+			}
+
+			echo(sprintf('<div class="thema_box">
+						<h2>%s</h2>
+			      <div>
+			        <ul>
+			          <li class="nam">테마명</li>
+			          <li class="rat">등락율</li>
+			          <li class="upi">상승</li>
+			          <li class="dni">하락</li>
+			          <li class="avr">거래대금</li>
+			        </ul>', $r["dp_nm"]));
+
+			$dp_nm = $r["dp_nm"];
+		}
+
+		$val = explode(",", $r["inf"]);
+
+		echo(sprintf('<ul><li class="nam">%s</li>
+		          <li class="rat"><span class="up">%s</span></li>
+		          <li class="upi"><span class="up">%s</span></li>
+		          <li class="dni"><span class="dn">%s</span></li>
+		          <li class="avr">%s백만</li></ul>', $r["themenm"],
+							$val[0]."%",
+							($r["upcnt"]>0)?"▲".$r["upcnt"]:"-",
+							($r["dncnt"]>0)?"▼".$r["dncnt"]:"-",
+							number_format($val[1])));
+	}
+
+	echo("</div></div>");
+?>-->
+  </div><!--//thema_all-->
+
+</div>
+</template>

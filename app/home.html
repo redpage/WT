@@ -1,0 +1,44 @@
+
+<template class="task-template">
+<div id="e-home" class="contents">
+  	<div class="top">
+    	<ul class="pick">
+      	<select id="w-group-selector">
+          <option value="0" selected>전체테마</option>
+<!--<?php
+	$rs = $WIT->DB->callText("select seq, dp_nm from v_theme_group", "reader");
+	foreach($rs as $r) {
+		echo('<option value="'.$r["seq"].'">'.$r["dp_nm"].'</option>');
+	}
+  $WIT->ST["totalthemecount"] = $WIT->DB->callText("select count(*) from v_theme", "scalar");
+?>-->
+        </select>
+      </ul>
+      <ul id="w-sort" class="sort">
+      	<li class="on"><input type="button" value="등락율"></li>
+        <li><input type="button" value="거래량"></li>
+      </ul>
+    </div>
+  	<div class="thema_list">
+<!--JS 로 FILL-->
+    </div>
+
+    <!--<div class="news_bar">
+        <ul class="list">[09:40] 전기차 테마주 2종목 / 7종목  거래량 급증!!</ul>
+        <ul class="control">
+          <li><input type="image" src="images/news_up.png"></li>
+          <li><input type="image" src="images/news_dn.png"></li>
+        </ul>
+    </div>-->
+
+    <div id="w-clickmenu" class="click" style="display:none">
+    <ul shcode="000000">
+      <li idx="1">관련 테마내용 자세히 보기</li>
+      <li idx="2">관련 뉴스보기</li>
+      <li idx="3">내 관심테마로 등록</li>
+      <li idx="4">내 관심테마에서 삭제</li>
+    </ul>
+    </div>
+
+  </div>
+</template>

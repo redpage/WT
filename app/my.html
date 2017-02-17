@@ -1,0 +1,66 @@
+<template class="task-template">
+<style type="text/css">
+.contents .move {top:15%}
+.contents .top { height:30px; line-height:30px}
+.contents .top ul { text-align:right; padding-right:30px; color:#555; font-family:Gulim, Dotum}
+</style>
+<div id="e-my" class="contents">
+	<div class="top">
+  	<ul>[등락율 상위 3종목에 대한 평균]</ul>
+  </div>
+	<div class="my_list">
+<!--<?php
+		$WIT->ST["mbrno"] = $WIT->Mbrno();
+		$rs = $WIT->DB->callProcedure("usp_theme_mbr_rank", $WIT->ST, "reader");
+		//var_dump($rs);
+		foreach($rs as $r)
+		{
+			//class="pick"
+			$cls = "";
+			$inf = explode(",", $r["inf"]);
+			$drate = $inf[0];
+			$qty = $inf[1];
+
+			if($drate>0) $cls="up";
+			elseif($drate<0) $cls = "dn";
+			if($drate > 0) $drate = "+".$drate;
+
+			echo(sprintf('<dl themeno="%d">
+			      <dt> <span>%d</span> <label>[%s]</label>  <p>%s</p><input type="image" src="./images/more.png" /></dt>
+			      <dd>등락율  <p><span class="%s">%s</span></p></dd>
+			      <dd>거래대금<p><span>%s</span></dd>
+			    </dl>', $r["themeno"], $r["rnk"],$r["groupnm"], $r["themenm"], $cls , $drate."%", number_format($qty)."백만"
+				));
+		}
+?>-->
+  </div>
+
+  <div class="list">
+
+    <div class="th">
+      <ul>
+        <li class="rnk">순위</li>
+        <li class="itm">종목명</li>
+        <li class="prc">현재가</li>
+        <li class="chg">대비</li>
+        <li class="rat">등락율</li>
+        <li class="vol">거래량</li>
+        <li class="vch">전일거래량대비</li>
+        <li class="tot">시가총액</li>
+        <li class="ctt">테마내용</li>
+      </ul>
+      <ul class="btn">
+        <input type="button" value="테마내용">
+        <input type="button" class="on" value="주가정보" onclick="infoVeiw(this, 'my')">
+        <span class="btn_up" onclick="listUp('my')"></span>
+      </ul>
+    </div>
+    <div class="td">
+<!-- load_stock_list -->
+    </div>
+
+  </div><!--//list-->
+
+</div><!--//contents-->
+
+</template>

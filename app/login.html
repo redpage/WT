@@ -1,0 +1,33 @@
+<template class="task-template">
+<div id="e-login" class="login is-shown">
+<!--login box-->
+<form name="loginForm" id="loginForm" onsubmit="return on_login(this)">
+<div class="login_box">
+ 	<h1 class="top">Member Login</h1>
+  <div>
+    <ul class="ipt">
+      <li>
+        <label>아이디</label>
+        <input type="text" name="id" value="" />
+      </li>  
+      <li>
+        <label>비밀번호</label>
+        <input type="password" name="pwd" />
+      </li>
+      <li class="btn"><input type="submit" value="로그인" /></li>
+    </ul>
+    <ul class="chk">  
+      <li>
+        <label><input name="sv" type="checkbox" value="1" /> 아이디저장</label>
+        <label><input name="auto" type="checkbox" value="1" /> 자동로그인</label>
+      </li>
+    </ul>
+    <ul class="member">
+      <li class="lost">아이디 / 비밀번호를 잊어버리셨나요? <a href="#">아이디/비밀번호 찾기</a></li>
+      <li class="join">이용하기 전 회원가입은 하셨나요? <a href="#" onclick="location.reload()">회원가입</a></li>
+    </ul>
+  </div>
+</div><!--login box-->
+</form>
+</div>
+</template>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<meta name="description" content="">
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<title>테마주검색기</title>
+      <link rel="import" href="login.html">
+      <link rel="import" href="home.html">
+      <link rel="import" href="my.html">
+      <link rel="import" href="analysis.html">
+      <link rel="import" href="news.html">
+      <link rel="import" href="search.html">
+      <link rel="import" href="all.html">
+
+      <link rel="stylesheet" href="css/alertify.min.css" />
+      <link rel="stylesheet" href="css/alertifytheme/bootstrap.min.css" />    
+			<link href="./css/layout.css?q=1846120502" rel="stylesheet">
+</head>
+
+<body>
+<div id="wrap">
+<div class="header">
+  <div class="top" style="-webkit-app-region: drag;">
+    <h2>테마주검색기</h2>
+    <ul class="control" style="-webkit-app-region: no-drag;">
+      <li class="min" id="min-btn"></li>
+      <li class="win" id="max-btn"></li>
+      <li class="cls" id="close-btn"></li>
+    </ul>
+  </div><!--//top-->
+  <div class="lnb">
+    <ul class="menu">
+      <li><a>테마주 검색기</a></li>
+      <li><a>관심테마</a></li>
+      <li><a>테마분석</a></li>
+      <li><a>테마뉴스</a></li>
+    </ul>
+    <ul class="search">
+<form onsubmit="return on_search(this)">
+      <li>
+        <input name="key" type="text" placeholder="search">
+        <input type="submit" value="검색">
+        <a href="javascript:nav_all()">전체리스트</a>
+      </li>
+</form>
+    </ul>
+  </div><!--//lnb-->
+</div>
+<!--//header-->
+
+<div id="e-bdy">
+
+</div>
+<div class="bottom" style="display:none">
+  <ul>
+    <li><label>반기문</label>지엔코[000000] <p class="up"><span>120,800</span> <span>1,850</span> <span>+12.5%</span></p> 상승폭 확대</li>
+    <li><label>반기문</label>지엔코[000000] <p class="up"><span>120,800</span> <span>1,850</span> <span>+12.5%</span></p> 상승폭 확대</li>
+  </ul>
+  <ul>
+    <li><label>반기문</label>지엔코[000000] <p class="up"><span>120,800</span> <span>1,850</span> <span>+12.5%</span></p> 상승폭 확대</li>
+    <li><label>반기문</label>지엔코[000000] <p class="dn"><span>120,800</span> <span>1,850</span> <span>+12.5%</span></p> 상승폭 확대</li>
+  </ul>
+</div>
+
+</div>  <!-- //wrap end -->
+<script>
+  window.$ = window.jQuery = require('./js/jquery-1.12.2.min.js');
+  window.alertify = require('./js/alertify.min.js');
+
+  alertify.defaults.glossary.title = "테마주검색기";
+  alertify.defaults.glossary.ok = "확인";
+  alertify.defaults.glossary.cancel = "취소";
+
+  var config = {
+		//mbrno:"7243",
+    mbrno : 0,
+    url : "http://smgr.winnerit.co.kr/www/talk.winnerstock.co.kr/wts.php",
+    buf : "",
+    themeno:0,
+    TOPPACKET:null
+	};  
+</script>
+<script src="./js/solon.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./js/base.js"></script>
+</body>
+</html>

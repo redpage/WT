@@ -1,0 +1,35 @@
+{
+
+    "version": "0.1.0",
+
+    "configurations": [
+
+        { 
+
+            "name": "DEBUG",
+
+            "type": "node",
+
+            "program": "d:/electron/WTheme/app/main.js", // important
+
+            "stopOnEntry": false,
+
+            "args": [],
+
+            "cwd": ".",
+
+            // next line is very important
+
+            "runtimeExecutable": "d:/electron/WTheme/node_modules/electron/dist/electron.exe",
+
+            "runtimeArguments": [],
+
+            "env": { }, 
+
+            "sourceMaps": false
+
+        } 
+
+    ]
+
+}
