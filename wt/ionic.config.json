@@ -1,0 +1,7 @@
+{
+  "name": "wt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
