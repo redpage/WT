@@ -1,0 +1,199 @@
+https://dev.to/ugglr/step-2-setting-up-react-with-react-native-web-30ba
+
+react-native init rt
+
+yarn add react-dom
+
+yarn add --dev @babel/core babel-loader @babel/preset-react @babel/preset-env
+
+npm i -D babel-loader html-loader
+
+yarn add --dev webpack webpack-cli webpack-dev-server html-webpack-plugin
+
+
+package.json 에 추가
+"scripts": {
+    ...
+    "build-react": "webpack --mode production",
+    "start-react": "webpack-dev-server --config ./webpack.config.js --mode development",
+    ...
+  }
+
+
+  webpack.config.js 추가
+=================
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const port = process.env.PORT || 3000;
+
+module.exports = {
+  // 개발환경
+  mode: 'development',
+
+  // 애플리케이션 시작 경로
+  entry: './index.web.js',
+
+  // 번들된 파일 경로
+  output: {
+    filename: 'bundle.[hash].js',
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: {
+              minimize: true,
+            },
+          },
+        ],
+      },
+    ],
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+    }),
+  ],
+
+  // 개발 서버 설정
+  devServer: {
+    host: 'localhost',
+    port: port,
+    open: true, // open page when start
+  },
+};
+
+==================================
+
+public 폴더 추가
+public/index.html 추가
+
+=================
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Native Web Storybook</title>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
+=====================
+
+root 폴더에 index.web.js 추가
+=================
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App.web';
+
+ReactDOM.render(<App />, document.getElementById('app'));
+
+==================
+
+App.web.js 추가
+
+===================
+
+import React from 'react';
+
+function App() {
+  return (
+    <>
+      <h1>Hello world from react</h1>
+    </>
+  );
+}
+
+export default App;
+
+===============
+
+
+yarn add react-native-web
+
+//webpack.config.js 에
+
+============================
+module.exports = {
+    ...
+    resolve: {
+      alias: {
+        'react-native$': 'react-native-web',
+      },
+    },
+    ...
+  }
+====================================
+
+// App.web.js
+
+import React from 'react';
+import {View, Text} from 'react-native';
+
+function App() {
+  return (
+    <View>
+      <Text>Hello world from react native</Text>
+    </View>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+=========================================================================
+
+
+
+http://tech.digger.works/digger-first-page/
+참조 react + webpack + electron
+
+
+-- Webpack과 Babel을 이용한 React 개발 환경 구성하기
+
+*https://berkbach.com/%EC%9B%B9%ED%8C%A9-webpack-%EA%B3%BC-%EB%B0%94%EB%B2%A8-babel-%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-react-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0-fb87d0027766
+
+mkdir webpack-react-example && cd webpack-react-example
+npm init -y
+
+npm i -D @babel/core @babel/preset-env @babel/preset-react
+
+
+.babelrc 파일 생성
+==============
+
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ]
+}
+
+==================
+
+npm i -D webpack webpack-cli webpack-dev-server
+
+webpack.config.js 생성
