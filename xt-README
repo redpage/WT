@@ -1,0 +1,7 @@
+npx react-native init <projectName> --template react-native
+
+cd projectName
+npx react-native-windows-init --overwrite
+
+
+npx react-native run-windows

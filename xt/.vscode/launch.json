@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "Debug Windows",
-            "cwd": "./xt",
+            "cwd": "${workspaceFolder}",
             "type": "reactnative",
             "request": "launch",
             "platform": "windows"
